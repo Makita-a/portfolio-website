@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooking — Makita Islam Mim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@400&display=swap&font-display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1510;--cream:#f0e8d0;--faded:#c4a87a;--brown:#8b6540;--accent:#d4472a;--muted:#5c4a32;--font-head:'Playfair Display',serif;--font-body:'DM Mono',monospace;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:0;}
+.wrapper{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 2.5rem;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:2.2rem 0 1.5rem;border-bottom:1px solid var(--muted);}
+.logo{font-family:var(--font-head);font-size:1.1rem;font-style:italic;color:var(--faded);text-decoration:none;}
+.back-btn{color:var(--faded);text-decoration:none;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;transition:color .2s;}
+.back-btn:hover{color:var(--cream);}
+.hero-section{padding:4rem 0 2.5rem;}
+.eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);display:inline-block;}
+h1{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1;}
+h1 em{font-style:italic;color:var(--faded);}
+.tagline{font-size:.75rem;color:var(--brown);letter-spacing:.08em;margin-top:1rem;line-height:1.7;}
+.heart-divider{display:flex;align-items:center;margin:2rem 0;overflow:hidden;}
+.heart-line{flex:1;height:1px;background:var(--muted);opacity:.5;}
+.heart-icon{flex-shrink:0;color:var(--accent);font-size:.85rem;margin:0 10px;opacity:.8;}
+.section-block{margin-bottom:3.5rem;}
+.section-tag{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.8rem;display:flex;align-items:center;gap:1rem;}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--muted);opacity:.4;}
+.body-text{font-size:.85rem;line-height:1.9;color:var(--brown);}
+.body-text strong{color:var(--cream);font-weight:400;}
+
+/* CLASS HIGHLIGHT */
+.class-box{border:1px solid var(--accent);padding:1.6rem 1.8rem;position:relative;margin-bottom:2rem;}
+.class-box::before{content:'';position:absolute;top:-1px;left:1.8rem;width:40px;height:2px;background:var(--accent);}
+.class-label{font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block;}
+.class-title{font-family:var(--font-head);font-size:1.1rem;font-style:italic;color:var(--faded);margin-bottom:.8rem;}
+.class-body{font-size:.82rem;line-height:1.85;color:var(--brown);}
+.class-body strong{color:var(--cream);font-weight:400;}
+.dish-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem;}
+.dish-tag{border:1px solid var(--muted);padding:.35rem .8rem;font-size:.65rem;color:var(--faded);letter-spacing:.06em;}
+
+.recipe-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.recipe-card{border:1px solid var(--muted);padding:1.2rem 1.4rem;position:relative;}
+.recipe-card::before{content:'';position:absolute;top:-1px;left:1.4rem;width:28px;height:2px;background:var(--accent);}
+.recipe-name{font-family:var(--font-head);font-size:.95rem;font-style:italic;color:var(--faded);margin-bottom:.25rem;}
+.recipe-origin{font-size:.6rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem;}
+.recipe-note{font-size:.7rem;color:var(--brown);line-height:1.6;}
+
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;}
+.photo-slot{aspect-ratio:1;background:rgba(92,74,50,.15);border:1px dashed var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-slot .ph{font-size:.55rem;color:rgba(196,168,122,.3);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:1rem;line-height:1.8;}
+
+footer{border-top:1px solid var(--muted);padding:2rem 0;display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.footer-copy{font-size:.65rem;color:var(--muted);letter-spacing:.1em;}
+.footer-num{font-family:var(--font-head);font-size:.8rem;color:var(--muted);font-style:italic;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <nav>
+    <a class="logo" href="portfolio.html">Makita Islam Mim</a>
+    <a class="back-btn" href="portfolio.html">← Back</a>
+  </nav>
+
+  <div class="hero-section">
+    <div class="eyebrow">Hobby — 002</div>
+    <h1>🍳 <em>Cooking</em></h1>
+    <div class="tagline">Cooking class host · Experimental kitchen · Dishes my parents never made</div>
+  </div>
+
+  <div class="heart-divider">
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-tag">About my cooking</div>
+    <div class="body-text">
+      <p>Cooking is one of my favourite creative outlets. I especially enjoy cooking dishes that my parents don't usually make at home, the kitchen is another form of exploration: learning new techniques, experimenting with flavours, and sharing food with others.</p>
+      <br>
+      <p>I grew up with two cuisines at home — Bangladeshi and Japanese. Now I'll happily try cooking almost anything.</p>
+    </div>
+  </div>
+
+  <!-- COOKING CLASS HIGHLIGHT -->
+  <div class="section-block">
+    <div class="section-tag">Highlight</div>
+    <div class="class-box">
+      <span class="class-label">November 2024 — Cooking Class</span>
+      <div class="class-title">Teaching 20 people to cook, all in 2 hours</div>
+      <div class="class-body">
+        <p>Last November, I organised and taught a cooking class for around <strong>20 participants</strong>. We made three dishes from scratch — all within two hours. It was chaotic, fun, and genuinely one of my favourite memories.</p>
+        <div class="dish-row">
+          <div class="dish-tag">🍚 Biryani</div>
+          <div class="dish-tag">🥚 Dim Bhuna (Spiced Egg Curry)</div>
+          <div class="dish-tag">🍮 Shemai (Traditional Dessert)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-tag">Dishes I love making</div>
+    <div class="recipe-grid">
+      <div class="recipe-card">
+        <div class="recipe-name">Chicken Biryani</div>
+        <div class="recipe-origin">Bangladesh · Home recipe</div>
+        <div class="recipe-note">The dish I love</div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-name">Gyoza</div>
+        <div class="recipe-origin">Japanese · home food</div>
+        <div class="recipe-note">I love eating gyozas and making gyozas. </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-name">Chicken Ramen</div>
+        <div class="recipe-origin">japanese · halal style</div>
+        <div class="recipe-note">Since Ramen contains pork, I started making my own ramen with halal ingredients, and my full family loves it</div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-name">Pasta</div>
+        <div class="recipe-origin">Italian </div>
+        <div class="recipe-note">I love making pasta with different flavours made from scratch , basil to mentaiko , I love all. </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="section-block">
+  <div class="section-tag">Food photos</div>
+
+  <div class="photo-grid">
+    <div class="photo-slot">
+      <img src="food1.jpg" alt="Chicken Biryani">
+    </div>
+
+    <div class="photo-slot">
+      <img src="food2.jpg" alt="Cooking Class">
+    </div>
+
+    <div class="photo-slot">
+      <img src="food3.jpg" alt="Homemade Food">
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <div class="footer-copy">&copy; 2026 Makita Islam Mim</div>
+    <div class="footer-num">No. 002</div>
+  </footer>
+</div>
+</body>
+</html>

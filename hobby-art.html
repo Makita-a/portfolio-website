@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art — Makita Islam Mim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@400&display=swap&font-display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1510;--cream:#f0e8d0;--faded:#c4a87a;--brown:#8b6540;--accent:#d4472a;--muted:#5c4a32;--font-head:'Playfair Display',serif;--font-body:'DM Mono',monospace;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:0;}
+.wrapper{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 2.5rem;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:2.2rem 0 1.5rem;border-bottom:1px solid var(--muted);}
+.logo{font-family:var(--font-head);font-size:1.1rem;font-style:italic;color:var(--faded);text-decoration:none;}
+.back-btn{color:var(--faded);text-decoration:none;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;transition:color .2s;}
+.back-btn:hover{color:var(--cream);}
+.hero-section{padding:4rem 0 2.5rem;}
+.eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);display:inline-block;}
+h1{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1;}
+h1 em{font-style:italic;color:var(--faded);}
+.tagline{font-size:.75rem;color:var(--brown);letter-spacing:.08em;margin-top:1rem;line-height:1.7;}
+.heart-divider{display:flex;align-items:center;margin:2rem 0;overflow:hidden;}
+.heart-line{flex:1;height:1px;background:var(--muted);opacity:.5;}
+.heart-icon{flex-shrink:0;color:var(--accent);font-size:.85rem;margin:0 10px;opacity:.8;}
+.section-block{margin-bottom:3.5rem;}
+.section-tag{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.8rem;display:flex;align-items:center;gap:1rem;}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--muted);opacity:.4;}
+.body-text{font-size:.85rem;line-height:1.9;color:var(--brown);}
+.body-text strong{color:var(--cream);font-weight:400;}
+.minor-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(120,180,255,.3);background:linear-gradient(135deg,rgba(25,55,95,.4),rgba(12,30,65,.3));padding:.5rem 1rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#7bbcd8;margin:1.2rem 0;border-radius:2px;}
+.art-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:1rem;}
+.art-slot{min-height:200px;background:rgba(92,74,50,.15);border:1px dashed var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+.art-slot.tall{grid-row:span 2;}
+.art-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.art-slot .ph{font-size:.55rem;color:rgba(196,168,122,.3);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:1.5rem;line-height:1.8;}
+.medium-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1rem;}
+.medium-tag{border:1px solid var(--muted);padding:.8rem 1rem;font-size:.7rem;color:var(--faded);letter-spacing:.08em;text-align:center;}
+footer{border-top:1px solid var(--muted);padding:2rem 0;display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.footer-copy{font-size:.65rem;color:var(--muted);letter-spacing:.1em;}
+.footer-num{font-family:var(--font-head);font-size:.8rem;color:var(--muted);font-style:italic;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <nav>
+    <a class="logo" href="portfolio.html">Makita Islam Mim</a>
+    <a class="back-btn" href="portfolio.html">← Back</a>
+  </nav>
+
+  <div class="hero-section">
+    <div class="eyebrow">Hobby — 003</div>
+    <h1>🎨 <em>Art</em></h1>
+    <div class="tagline">Sketching · Drawing · Intermedia Art &amp; Sciences Minor at Waseda</div>
+  </div>
+
+  <div class="heart-divider">
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-tag">About my art</div>
+    <div class="minor-badge">✦ Minor: Intermedia Art and Sciences — Waseda University</div>
+    <div class="body-text">
+      <p>Art has always been an important part of my life — and that passion is exactly why I chose <strong>Intermedia Art and Sciences as a minor</strong> at Waseda University.</p>
+      <br>
+      <p>I enjoy exploring how technology, design, creativity, and human expression intersect. Through courses like Contemporary Art Theory, Fundamentals of Visual Expression, and both Intermedia Art and Science Labs, I've learned to think differently and approach problems from multiple angles.</p>
+      <br>
+      <p>Art taught me the balance between <strong>technical and creative thinking</strong> — something that turns out to be incredibly useful in engineering and research too. The best solutions are rarely just logical. They're also beautiful.</p>
+    </div>
+  </div>
+
+ <div class="section-block">
+  <div class="section-tag">My work</div>
+
+  <div class="art-grid">
+
+  <div class="art-slot"><img src="art2.jpg" alt="Artwork 2"></div>
+  <div class="art-slot"><img src="art3.jpg" alt="Artwork 3"></div>
+  <div class="art-slot"><img src="art4.jpg" alt="Artwork 4"></div>
+</div>
+
+  <div class="section-block">
+    <div class="section-tag">Mediums I use</div>
+    <div class="medium-grid">
+      <div class="medium-tag">Pencil Sketching</div>
+      <div class="medium-tag">Henna</div>
+      <div class="medium-tag">Watercolour</div>
+      <div class="medium-tag">Digital Art</div>
+      
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-copy">&copy; 2026 Makita Islam Mim</div>
+    <div class="footer-num">No. 003</div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exploring — Makita Islam Mim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@400&display=swap&font-display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1510;--cream:#f0e8d0;--faded:#c4a87a;--brown:#8b6540;--accent:#d4472a;--muted:#5c4a32;--font-head:'Playfair Display',serif;--font-body:'DM Mono',monospace;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:0;}
+.wrapper{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 2.5rem;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:2.2rem 0 1.5rem;border-bottom:1px solid var(--muted);}
+.logo{font-family:var(--font-head);font-size:1.1rem;font-style:italic;color:var(--faded);text-decoration:none;}
+.back-btn{color:var(--faded);text-decoration:none;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;transition:color .2s;}
+.back-btn:hover{color:var(--cream);}
+.hero-section{padding:4rem 0 2.5rem;}
+.eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);display:inline-block;}
+h1{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1;}
+h1 em{font-style:italic;color:var(--faded);}
+.tagline{font-size:.75rem;color:var(--brown);letter-spacing:.08em;margin-top:1rem;line-height:1.7;}
+.heart-divider{display:flex;align-items:center;margin:2rem 0;overflow:hidden;}
+.heart-line{flex:1;height:1px;background:var(--muted);opacity:.5;}
+.heart-icon{flex-shrink:0;color:var(--accent);font-size:.85rem;margin:0 10px;opacity:.8;}
+.section-block{margin-bottom:3.5rem;}
+.section-tag{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.8rem;display:flex;align-items:center;gap:1rem;}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--muted);opacity:.4;}
+.body-text{font-size:.85rem;line-height:1.9;color:var(--brown);}
+.body-text strong{color:var(--cream);font-weight:400;}
+
+/* cuisine grid */
+.cuisine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1rem;}
+.cuisine-tag{border:1px solid var(--muted);padding:.7rem .9rem;font-size:.68rem;color:var(--brown);letter-spacing:.05em;display:flex;align-items:center;gap:.5rem;}
+.cuisine-tag .flag{font-size:.9rem;}
+
+/* explore-with-me callout */
+.explore-box{background:linear-gradient(135deg,rgba(25,55,95,.55),rgba(12,30,65,.45));border:1px solid rgba(120,180,255,.2);border-radius:4px;padding:1.5rem 1.8rem;margin-top:2rem;backdrop-filter:blur(6px);}
+.explore-box p{font-size:.82rem;line-height:1.9;color:#c8dff5;}
+.explore-box strong{color:#e8f4ff;font-weight:400;}
+.explore-link{display:inline-block;margin-top:.8rem;font-size:.7rem;color:#7bbcd8;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(120,180,255,.3);padding-bottom:2px;transition:border-color .2s;}
+.explore-link:hover{border-color:#7bbcd8;}
+
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;}
+.photo-slot{aspect-ratio:1;background:rgba(92,74,50,.15);border:1px dashed var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-slot .ph{font-size:.55rem;color:rgba(196,168,122,.3);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:1rem;line-height:1.8;}
+
+footer{border-top:1px solid var(--muted);padding:2rem 0;display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.footer-copy{font-size:.65rem;color:var(--muted);letter-spacing:.1em;}
+.footer-num{font-family:var(--font-head);font-size:.8rem;color:var(--muted);font-style:italic;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <nav>
+    <a class="logo" href="portfolio.html">Makita Islam Mim</a>
+    <a class="back-btn" href="portfolio.html">← Back</a>
+  </nav>
+
+  <div class="hero-section">
+    <div class="eyebrow">Hobby — 004</div>
+    <h1>🌏 <em>Exploring</em></h1>
+    <div class="tagline">Cafés · Restaurants · New neighbourhoods · Always open to suggestions</div>
+  </div>
+
+  <div class="heart-divider">
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-tag">About exploring</div>
+    <div class="body-text">
+      <p>One of my favourite things to do is explore. Whether it's discovering a hidden café, walking through a new neighbourhood, visiting a museum, hiking outdoors, or trying a restaurant I've never been to — I enjoy experiencing new places and cultures.</p>
+      <br>
+      <p><strong>Food exploration has become one of my biggest hobbies.</strong> There's something about sitting down somewhere unfamiliar and trying a dish you've never heard of — it's exciting every single time. Over the years I've worked my way through a long list of cuisines, and the list keeps growing.</p>
+      <br>
+      <p>There's always another place to discover and another dish to try. <strong>What should I try next?</strong> If you have recommendations, I'm always listening.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-tag">Cuisines I've tried</div>
+    <div class="cuisine-grid">
+      <div class="cuisine-tag"><span class="flag">🇧🇩</span> Bangladeshi</div>
+      <div class="cuisine-tag"><span class="flag">🇯🇵</span> Japanese</div>
+      <div class="cuisine-tag"><span class="flag">🇮🇳</span> Indian</div>
+      <div class="cuisine-tag"><span class="flag">🇨🇳</span> Chinese</div>
+      <div class="cuisine-tag"><span class="flag">🇳🇵</span> Nepali</div>
+      <div class="cuisine-tag"><span class="flag">🇰🇷</span> Korean</div>
+      <div class="cuisine-tag"><span class="flag">🇪🇬</span> Egyptian</div>
+      <div class="cuisine-tag"><span class="flag">🇲🇦</span> Moroccan</div>
+      <div class="cuisine-tag"><span class="flag">🇸🇦</span> Saudi Arabian</div>
+      <div class="cuisine-tag"><span class="flag">🇺🇸</span> American</div>
+      <div class="cuisine-tag"><span class="flag">🇲🇾</span> Malaysian</div>
+      <div class="cuisine-tag"><span class="flag">🇳🇬</span> Nigerian</div>
+      <div class="cuisine-tag"><span class="flag">🇮🇹</span> Italian</div>
+      <div class="cuisine-tag"><span class="flag">🇵🇰</span> Pakistani</div>
+      <div class="cuisine-tag"><span class="flag">❓</span> What's next?</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-tag">Explore with me</div>
+    <div class="explore-box">
+      <p>If you know a great café, a hidden restaurant, or just a neighbourhood worth wandering through — <strong>let me know.</strong> I'm always looking for the next place to add to the list. Indoor or outdoor, fancy or casual, I'm open to everything.</p>
+      <a class="explore-link" href="mailto:makita.islam78@gmail.com">Send your recommendation → makita.islam78@gmail.com</a>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="footer-copy">&copy; 2026 Makita Islam Mim</div>
+    <div class="footer-num">No. 004</div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makita Islam Mim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@400&display=swap&font-display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1510;--cream:#f0e8d0;--faded:#c4a87a;--brown:#8b6540;--accent:#d4472a;--muted:#5c4a32;--font-head:'Playfair Display',serif;--font-body:'DM Mono',monospace;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:0;}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:#1a1510;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:opacity 0.5s ease,visibility 0.5s ease;}
+#loader.hidden{opacity:0;visibility:hidden;}
+.loader-scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px);pointer-events:none;}
+.loader-text{font-family:var(--font-body);font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:#5c4a32;margin-bottom:.5rem;}
+.loader-name{font-family:var(--font-head);font-size:clamp(1.3rem,4vw,2rem);font-style:italic;color:#c4a87a;letter-spacing:.04em;margin-bottom:2.5rem;}
+.road-wrap{position:absolute;bottom:100px;left:0;right:0;}
+.road-line{height:1px;background:#5c4a32;opacity:.6;}
+.road-dashes{height:4px;background:repeating-linear-gradient(90deg,#c4a87a 0,#c4a87a 30px,transparent 30px,transparent 60px);opacity:.15;animation:dashMove .4s linear infinite;}
+@keyframes dashMove{to{background-position:60px 0;}}
+.car-wrap{position:absolute;bottom:102px;animation:drive 1.6s cubic-bezier(.3,0,.7,1) forwards;}
+@keyframes drive{0%{left:-230px;}100%{left:calc(100% + 30px);}}
+.exhaust{position:absolute;left:-8px;bottom:22px;}
+.puff{position:absolute;border-radius:50%;background:rgba(196,168,122,.2);animation:puff .9s ease-out infinite;}
+.puff1{width:14px;height:14px;bottom:0;left:0;}
+.puff2{width:10px;height:10px;bottom:4px;left:-14px;animation-delay:.3s;}
+.puff3{width:8px;height:8px;bottom:8px;left:-24px;animation-delay:.6s;}
+@keyframes puff{0%{opacity:.6;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(2) translateY(-12px);}}
+.wheel-spin{animation:spin .45s linear infinite;transform-origin:center;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.progress-bar{position:absolute;bottom:58px;left:20%;width:60%;height:1px;background:#2a1e12;}
+.progress-fill{height:100%;background:#c4a87a;width:0%;animation:fill 1.6s cubic-bezier(.3,0,.7,1) forwards;}
+@keyframes fill{to{width:100%;}}
+.progress-label{position:absolute;bottom:38px;font-family:var(--font-body);font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:#3a2a18;}
+
+#main-content{opacity:0;transition:opacity .5s ease;}
+#main-content.visible{opacity:1;}
+
+.wrapper{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 2.5rem;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:2.2rem 0 1.5rem;border-bottom:1px solid var(--muted);}
+.logo{font-family:var(--font-head);font-size:1.1rem;font-style:italic;color:var(--faded);}
+.film-holes{display:flex;gap:6px;align-items:center;}
+.hole{width:10px;height:14px;border:1.5px solid var(--muted);border-radius:2px;opacity:.6;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--faded);text-decoration:none;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--cream);}
+
+.hero{padding:5rem 0 4rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;}
+.eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;animation:fadeUp .7s ease both;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);display:inline-block;}
+h1{font-family:var(--font-head);font-size:clamp(3rem,6vw,4.8rem);font-weight:700;line-height:1;letter-spacing:-.01em;margin-bottom:.3rem;animation:fadeUp .7s .1s ease both;}
+h1 em{font-style:italic;color:var(--faded);}
+.subtitle{font-size:.72rem;color:var(--brown);letter-spacing:.12em;text-transform:uppercase;margin-top:1.2rem;animation:fadeUp .7s .2s ease both;}
+
+.polaroid-stack{position:relative;width:180px;flex-shrink:0;animation:fadeUp .7s .3s ease both;}
+.polaroid-back{position:absolute;top:-8px;right:-12px;transform:rotate(6deg);z-index:0;background:#ddd5be;padding:10px 10px 32px;width:180px;}
+.polaroid-back-inner{width:160px;height:160px;background:#a89070;}
+.polaroid{position:relative;z-index:1;background:#e8dfc8;padding:10px 10px 32px;box-shadow:-4px 4px 0 rgba(0,0,0,.4);}
+.polaroid-img{width:160px;height:160px;object-fit:cover;display:block;}
+.polaroid-placeholder{width:160px;height:160px;background:var(--muted);display:flex;align-items:center;justify-content:center;}
+.polaroid-label{text-align:center;font-family:var(--font-body);font-size:.65rem;color:#6b5a3a;padding-top:8px;letter-spacing:.05em;}
+
+/* STAMP — sky blue */
+.stamp{position:absolute;right:0;top:3rem;width:80px;height:80px;border:2px solid #5a9abf;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);opacity:.7;}
+.stamp-inner{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:#7bbcd8;text-align:center;line-height:1.6;}
+
+/* CULTURE BOX — sky blue glassmorphism */
+.culture-box{background:linear-gradient(135deg,rgba(92, 60, 30, 0.25),rgba(15,35,70,.45));border:1px solid rgba(196, 148, 90, 0.25);border-radius:4px;padding:1.6rem 2rem;margin:2rem 0;backdrop-filter:blur(6px);box-shadow:0 4px 24px rgba(0,20,60,.3);}
+.culture-box p{font-size:.82rem;line-height:1.9;color:#c4a87a;}
+.culture-box p strong{color:#f0e8d0;font-weight:400;}
+
+.heart-divider{display:flex;align-items:center;margin:2.5rem 0;overflow:hidden;}
+.heart-line{flex:1;height:1px;background:var(--muted);opacity:.5;}
+.heart-icon{flex-shrink:0;color:var(--accent);font-size:.85rem;margin:0 10px;opacity:.8;line-height:1;}
+
+.section-tag{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--muted);opacity:.4;}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:1rem;}
+.about-bio{font-size:.85rem;line-height:1.9;color:var(--brown);}
+.about-bio strong{color:var(--cream);font-weight:400;}
+.tape{display:inline-block;background:rgba(196,168,122,.1);border:1px solid rgba(196,168,122,.18);padding:2px 14px;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--faded);margin-bottom:1rem;}
+.detail-row{display:flex;justify-content:space-between;align-items:baseline;padding:.7rem 0;border-bottom:1px solid rgba(92,74,50,.3);font-size:.7rem;letter-spacing:.08em;}
+.detail-label{color:var(--muted);text-transform:uppercase;font-size:.6rem;letter-spacing:.2em;}
+.detail-val{color:var(--faded);text-align:right;max-width:55%;}
+
+.section-block{margin-bottom:4rem;}
+.btn-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.nav-btn{display:flex;align-items:center;gap:1rem;padding:1.4rem 1.6rem;border:1px solid var(--muted);background:transparent;color:var(--cream);font-family:var(--font-body);text-decoration:none;position:relative;overflow:hidden;transition:border-color .25s,background .25s;}
+.nav-btn::before{content:'';position:absolute;top:-1px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s ease;}
+.nav-btn:hover{border-color:var(--faded);background:rgba(196,168,122,.04);}
+.nav-btn:hover::before{width:100%;}
+.btn-emoji{font-size:1.6rem;flex-shrink:0;}
+.btn-name{display:block;font-size:.8rem;letter-spacing:.1em;color:var(--cream);margin-bottom:.2rem;text-transform:uppercase;}
+.btn-desc{display:block;font-size:.62rem;color:var(--muted);line-height:1.5;}
+.btn-arrow{margin-left:auto;color:var(--accent);font-size:.8rem;opacity:0;transition:opacity .2s,transform .2s;}
+.nav-btn:hover .btn-arrow{opacity:1;transform:translateX(4px);}
+
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.contact-card{border:1px solid var(--muted);padding:1.2rem 1.4rem;text-decoration:none;display:block;transition:border-color .2s;}
+.contact-card:hover{border-color:var(--faded);}
+.contact-type{font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;display:block;}
+.contact-val{font-size:.72rem;color:var(--faded);word-break:break-all;}
+
+footer{border-top:1px solid var(--muted);padding:2rem 0;display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.footer-copy{font-size:.65rem;color:var(--muted);letter-spacing:.1em;}
+.footer-num{font-family:var(--font-head);font-size:.8rem;color:var(--muted);font-style:italic;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-scanlines"></div>
+  <div class="loader-text">Welcome</div>
+  <div class="loader-name">Makita Islam Mim</div>
+  <div class="road-wrap"><div class="road-dashes"></div><div class="road-line"></div></div>
+  <div class="car-wrap">
+    <div class="exhaust"><div class="puff puff1"></div><div class="puff puff2"></div><div class="puff puff3"></div></div>
+    <svg width="200" height="90" viewBox="0 0 200 90" fill="none" aria-hidden="true">
+      <ellipse cx="105" cy="86" rx="78" ry="5" fill="#0d0a07" opacity=".5"/>
+      <rect x="18" y="52" width="164" height="26" rx="6" fill="#8b6540"/>
+      <path d="M48 52 Q54 28 78 24 L138 24 Q158 24 162 52 Z" fill="#a07848"/>
+      <path d="M80 26 Q108 20 136 26 L130 30 Q108 26 80 30 Z" fill="#c4a87a" opacity=".3"/>
+      <path d="M86 24 L80 50 L120 50 L116 24 Z" fill="#1a2830" opacity=".8"/>
+      <path d="M120 50 L116 24 L136 28 L140 50 Z" fill="#1a2830" opacity=".7"/>
+      <path d="M86 24 L80 50" stroke="#c4a87a" stroke-width=".8" opacity=".5"/>
+      <path d="M116 24 L120 50" stroke="#c4a87a" stroke-width=".8" opacity=".5"/>
+      <path d="M162 52 L182 52 L182 60 L162 60 Z" fill="#9a7048"/>
+      <path d="M18 52 L10 54 L10 62 L18 62 Z" fill="#7a5838"/>
+      <line x1="18" y1="62" x2="182" y2="62" stroke="#c4a87a" stroke-width="1" opacity=".4"/>
+      <ellipse cx="180" cy="56" rx="5" ry="4" fill="#f0e8d0" opacity=".9"/>
+      <ellipse cx="180" cy="56" rx="3" ry="2.5" fill="white"/>
+      <ellipse cx="185" cy="56" rx="6" ry="3" fill="#f0e8d0" opacity=".15"/>
+      <ellipse cx="14" cy="57" rx="4" ry="3" fill="#d4472a" opacity=".8"/>
+      <rect x="130" y="61" width="12" height="2.5" rx="1" fill="#c4a87a" opacity=".7"/>
+      <rect x="90" y="61" width="12" height="2.5" rx="1" fill="#c4a87a" opacity=".7"/>
+      <rect x="22" y="76" width="156" height="4" rx="2" fill="#5c4a32"/>
+      <rect x="178" y="62" width="8" height="8" rx="2" fill="#c4a87a" opacity=".5"/>
+      <rect x="14" y="62" width="8" height="8" rx="2" fill="#c4a87a" opacity=".5"/>
+      <g transform="translate(152,78)">
+        <circle r="14" fill="#2a1e10"/><circle r="14" stroke="#5c4a32" stroke-width="1.5" fill="none"/>
+        <g class="wheel-spin"><circle r="8" fill="#3a2a18"/>
+          <line x1="0" y1="-8" x2="0" y2="8" stroke="#c4a87a" stroke-width="1" opacity=".7"/>
+          <line x1="-8" y1="0" x2="8" y2="0" stroke="#c4a87a" stroke-width="1" opacity=".7"/>
+          <line x1="-5.6" y1="-5.6" x2="5.6" y2="5.6" stroke="#c4a87a" stroke-width=".8" opacity=".4"/>
+          <line x1="5.6" y1="-5.6" x2="-5.6" y2="5.6" stroke="#c4a87a" stroke-width=".8" opacity=".4"/>
+        </g><circle r="3.5" fill="#c4a87a" opacity=".8"/>
+      </g>
+      <g transform="translate(50,78)">
+        <circle r="14" fill="#2a1e10"/><circle r="14" stroke="#5c4a32" stroke-width="1.5" fill="none"/>
+        <g class="wheel-spin"><circle r="8" fill="#3a2a18"/>
+          <line x1="0" y1="-8" x2="0" y2="8" stroke="#c4a87a" stroke-width="1" opacity=".7"/>
+          <line x1="-8" y1="0" x2="8" y2="0" stroke="#c4a87a" stroke-width="1" opacity=".7"/>
+          <line x1="-5.6" y1="-5.6" x2="5.6" y2="5.6" stroke="#c4a87a" stroke-width=".8" opacity=".4"/>
+          <line x1="5.6" y1="-5.6" x2="-5.6" y2="5.6" stroke="#c4a87a" stroke-width=".8" opacity=".4"/>
+        </g><circle r="3.5" fill="#c4a87a" opacity=".8"/>
+      </g>
+      <line x1="76" y1="24" x2="72" y2="8" stroke="#c4a87a" stroke-width=".8" opacity=".5"/>
+      <circle cx="72" cy="7" r="1.5" fill="#c4a87a" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="progress-bar"><div class="progress-fill"></div></div>
+  <div class="progress-label">Loading portfolio...</div>
+</div>
+
+<div id="main-content">
+<div class="wrapper">
+
+  <nav>
+    <div class="logo">Makita Islam Mim</div>
+    <div class="film-holes">
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div style="position:relative;">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="eyebrow">Personal Portfolio</div>
+        <h1>Makita<br><em>Islam Mim</em></h1>
+        <div class="subtitle">Computer Science &amp; Communication Engineer</div>
+      </div>
+      <div class="polaroid-stack">
+        <div class="polaroid-back"><div class="polaroid-back-inner"></div></div>
+        <div class="polaroid">
+          <img class="polaroid-img" src="photo.jpg" alt="Makita Islam Mim" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="polaroid-placeholder" style="display:none;">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+              <circle cx="28" cy="20" r="10" stroke="#c4a87a" stroke-width="1.5"/>
+              <path d="M8 50c0-11 8.95-20 20-20s20 8.95 20 20" stroke="#c4a87a" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="polaroid-label">makita.islam.mim</div>
+        </div>
+      </div>
+    </div>
+    <div class="stamp">
+      <div class="stamp-inner">Born<br>Tokyo<br>✦ BD</div>
+    </div>
+  </div>
+
+  <!-- CULTURE BOX — sky blue glassmorphism -->
+  <div class="culture-box">
+    <p><strong>Born in Tokyo, raised in Bangladesh.</strong><br>
+    Growing up between two cultures gave me the best of both worlds — sushi and biryani, Japanese discipline and Bangladeshi warmth. My journey has been about connecting different perspectives, people, and ideas while staying curious about the world around me.</p>
+  </div>
+
+  <div class="heart-divider">
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-block">
+    <div class="section-tag">About me &mdash; 001</div>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>I was born in Tokyo and raised with strong Bangladeshi roots, growing up between two cultures that shaped who I am today. You could say I was raised on both sushi and biryani.</p>
+        <br>
+        <p>Experiencing different cultures from an early age taught me adaptability, curiosity, and the importance of understanding people from diverse backgrounds. Whether through technology, art, food, or travel, I enjoy exploring how different perspectives come together to create something meaningful.</p>
+      </div>
+      <div class="about-details">
+        <div class="tape">Quick Facts</div>
+        <div class="detail-row"><span class="detail-label">Born in</span><span class="detail-val">Tokyo, Japan</span></div>
+        <div class="detail-row"><span class="detail-label">Raised in</span><span class="detail-val">Dhaka, Bangladesh</span></div>
+        <div class="detail-row"><span class="detail-label">Nationality</span><span class="detail-val">Bangladeshi</span></div>
+        <div class="detail-row"><span class="detail-label">Languages</span><span class="detail-val">English · Japanese · Bengali · Hindi</span></div>
+        <div class="detail-row"><span class="detail-label">Field</span><span class="detail-val">Computer Science &amp; Communication Engineering</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="heart-divider">
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section-block">
+    <div class="section-tag">Education &mdash; 002</div>
+    <div class="btn-grid">
+      <a class="nav-btn" href="edu-waseda.html">
+        <span class="btn-emoji">🎓</span>
+        <span>
+          <span class="btn-name">Waseda University</span>
+          <span class="btn-desc">CS &amp; Comm. Engineering · 2022 – Present</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a class="nav-btn" href="edu-highschool.html">
+        <span class="btn-emoji">🏫</span>
+        <span>
+          <span class="btn-name">Oxford International School</span>
+          <span class="btn-desc">Dhaka, Bangladesh · KG – Grade 12</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="heart-divider">
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div>
+  </div>
+
+  <!-- HOBBIES -->
+  <section id="hobbies" class="section-block">
+    <div class="section-tag">Hobbies &mdash; 003</div>
+    <div class="btn-grid">
+      <a class="nav-btn" href="hobby-photography.html">
+        <span class="btn-emoji">📷</span>
+        <span>
+          <span class="btn-name">Photography</span>
+          <span class="btn-desc">Golden hour, skies &amp; moments worth keeping.</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a class="nav-btn" href="hobby-cooking.html">
+        <span class="btn-emoji">🍳</span>
+        <span>
+          <span class="btn-name">Cooking</span>
+          <span class="btn-desc">Biryani class host. Always in the kitchen.</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a class="nav-btn" href="hobby-art.html">
+        <span class="btn-emoji">🎨</span>
+        <span>
+          <span class="btn-name">Art</span>
+          <span class="btn-desc">Sketching, drawing &amp; intermedia art minor.</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a class="nav-btn" href="hobby-exploring.html">
+        <span class="btn-emoji">🌏</span>
+        <span>
+          <span class="btn-name">Exploring</span>
+          <span class="btn-desc">Cafés, cuisines &amp; hidden spots worldwide.</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="heart-divider">
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div><span class="heart-icon">♥</span>
+    <div class="heart-line"></div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-block">
+    <div class="section-tag">Contact &mdash; 004</div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:makita.islam78@gmail.com">
+        <span class="contact-type">Email</span>
+        <span class="contact-val">makita.islam78@gmail.com</span>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/makita-islam-9a21342b5/" target="_blank" rel="noopener">
+        <span class="contact-type">LinkedIn</span>
+        <span class="contact-val">Makita Islam Mim</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-copy">&copy; 2026 Makita Islam Mim &mdash; All rights reserved</div>
+    <div class="footer-num">No. 001</div>
+  </footer>
+
+</div>
+</div>
+
+<script>
+window.addEventListener('load',function(){setTimeout(function(){document.getElementById('loader').classList.add('hidden');document.getElementById('main-content').classList.add('visible');},2000);});
+</script>
+</body>
+</html>
